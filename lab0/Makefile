@@ -17,11 +17,11 @@ RUN                  = $(TB).simv -l run.log -sml -cm line+tgl+branch -cm_name $
 MODULE_LOAD_SH      ?= module load
 MODULE_UNLOAD_SH    ?= module unload
 VCSMX_VERSION       ?= vcsmx/L-2016.06-SP2-10
-FIREFOX_VERSION     ?= firefox/2.0-iw
+#FIREFOX_VERSION     ?= firefox/2.0-iw
 MODULE_FILE         ?= /p/inway/flow/fv4iw_7.0fp2/etc/modulefiles
 VCSMX_MODULE         = . /p/inway_arch/tools/opensource/Modules/3.2.10-i01/init/sh; $(MODULE_UNLOAD_SH) vcsmx VCSMX; \
 . /p/inway_arch/tools/opensource/Modules/3.2.10-i01/init/sh;module use $(MODULE_FILE); . /p/inway_arch/tools/opensource/Modules/3.2.10-i01/init/sh; $(MODULE_LOAD_SH) $(VCSMX_VERSION)
-FIREFOX_MODULE       = . /p/inway_arch/tools/opensource/Modules/3.2.10-i01/init/sh; $(MODULE_UNLOAD_SH) firefox; \
+#FIREFOX_MODULE       = . /p/inway_arch/tools/opensource/Modules/3.2.10-i01/init/sh; $(MODULE_UNLOAD_SH) firefox; \
 . /p/inway_arch/tools/opensource/Modules/3.2.10-i01/init/sh;module use $(MODULE_FILE); . /p/inway_arch/tools/opensource/Modules/3.2.10-i01/init/sh; $(MODULE_LOAD_SH) $(FIREFOX_VERSION)
 
 comp:
@@ -46,7 +46,7 @@ editcov:
 # urg -dir ... -elfile filename.el
 viewcov:
 	$(VCSMX_MODULE); urg -full64 -format both -dir $(TB).simv.vdb 
-	$(FIREFOX_MODULE); firefox urgReport/dashboard.html
+	#$(FIREFOX_MODULE); firefox urgReport/dashboard.html
 
 clean:
 	rm -rf AN.DB DVEfiles csrc *.simv *.simv.daidir *.simv.vdb ucli.key
